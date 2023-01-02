@@ -1,0 +1,32 @@
+CREATE TABLE LinkWear 
+(id INTEGER PRIMARY KEY,
+color TEXT,
+clothing_type TEXT,
+material TEXT,
+size TEXT,
+price INTEGER,
+amount INTEGER); 
+
+INSERT INTO LINKWEAR VALUES (1,"dark blue","jeans", "denem", "M", 89.90, 1);
+INSERT INTO LINKWEAR VALUES (2, "neon green","pants", "polyester", "XXL", 44.99, 2);
+INSERT INTO LINKWEAR VALUES (3, "neon yellow","pants", "polyester", "XXL", 44.99, 2);
+INSERT INTO LinkWear Values (4, "clear","T-shirt", "plastic", "L", 120.98, 1);
+INSERT INTO LinkWear VALUES (5, "white", "sport socks",  "cotton", "M", 29.99, 3);
+INSERT INTO Linkwear VALUES (6, "purple swirl", "socks", "cotton", "S", 29.99, 2);
+INSERT INTO LinkWear Values (7, "black", "socks", "cotton", "XXS", 22.99, 2);
+INSERT INTO LinkWear Values (8, "black", "socks", "cotton", "XXS", 22.99, 2);
+INSERT INTO LinkWear Values (9, "black", "shoes", "leather", "XL", 120.00, 1);
+INSERT INTO LinkWear Values (10, "brown", "hiking boots", "leather", "XL", 210.00 , 1);
+INSERT INTO LinkWear Values (11, "yellow", "cap", "cotton", "XL", 20.00, 1);
+INSERT INTO Linkwear VALUES (12, "BLUE", "winter hat", "cotton blend", "one size", 29.99, 1); 
+INSERT INTO LinkWear Values (13, "pink", "headband", "cotton", "one size", 19.99, 1);
+INSERT INTO Linkwear VALUES (14, "black", "wristband", "leatheer", "M", 54.99, 1);
+INSERT INTO LinkWear VALUES (15, "black", "sunglasses", "plastic", "one size", 55.99, 1);
+SELECT * FROM LinkWear;
+
+SELECT * FROM LinkWear ORDER BY price;
+
+SELECT clothing_type, SUM(price) from Linkwear group by material;
+SELECT clothing_type, SUM(price) from Linkwear group by size;
+SELECT clothing_type, SUM(price) from Linkwear group by price;
+SELECT clothing_type, color from Linkwear;
