@@ -136,3 +136,7 @@ FROM Topmovies
 Where Year > "1999" 
 AND Domestic >"500"
 ORDER BY Domestic DESC
+
+/*Has at least one query that uses a math function like MAX, MIN, AVG, SUM, or ROUND*/
+Select Title, Max(Worldwide), Year
+FROM topmovies;
