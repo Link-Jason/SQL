@@ -1,0 +1,61 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE celebs
+(id integer primary key,
+first_name TEXT, 
+last_name TEXT, 
+age INTEGER);
+
+INSERT INTO celebs VALUES (1 ,"Paul", "McCartney", 80);
+INSERT INTO celebs VALUES (2,"Michael", "Phelps", 37 ); 
+INSERT INTO celebs VALUES (3 ,"Jonny", "Depp", 59);
+INSERT INTO celebs VALUES (4 ,"James", "Taylor", 74);
+INSERT INTO celebs VALUES (5 ,"Larry", "Bird", 66);
+INSERT INTO celebs VALUES (6 ,"Alison", "Krauss", 51);
+INSERT INTO celebs VALUES (7 ,"Gene", "simmons", 72);
+
+CREATE TABLE interests (id integer primary key, 
+hobby TEXT,
+pet TEXT,
+beverage TEXT);
+
+INSERT INTO interests VALUES(1, "gardening","dog","tea");
+INSERT INTO interests VALUES(2, "movies", "fish","coffee");
+INSERT INTO interests VALUES(3, "gardening","lizard","coffee");
+INSERT INTO interests VALUES(4, "sailing", "dog","coffee");
+INSERT INTO interests VALUES(5, "pool", "dog","tea");
+INSERT INTO interests VALUES(6, "gardening", "fish", "coffee");
+INSERT INTO interests VALUES(7, "model_trains", "cat", "tea");
+
+
+/*Celebrity first and last name with hobby and pet*/
+SELECT c.first_name, i.hobby, i.pet
+FROM celebs c
+JOIN interests i
+ON c.id=i.id;
+
+/*What is the first name, age and pet of the celebrities that are over the age of 50 listed youngest to oldest?*/
+SELECT c.first_name, c.age, i.pet
+FROM celebs c
+JOIN interests i
+ON c.id=i.id
+WHERE age > 50
+ORDER BY age ASC;
+
+/*Select the favorite beverage of every celeb*/
+SELECT c.first_name, i.pet, c.age, c.id
+FROM celebs c
+JOIN interests i
+ON c.id=i.id;
+
+/*Show first and last name of celebs that drink tea*/
+SELECT celebs.last_name, celebs.first_name, interests.beverage
+FROM celebs  
+JOIN interests 
+ON celebs.id=interests.id
+WHERE interests.beverage = 'tea'
+ORDER BY celebs.last_name;
+
+
+
+
