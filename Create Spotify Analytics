@@ -1,0 +1,67 @@
+--For this project, I downloaded Spotify data from Kaggle.
+--Then I created a table to insert Spotify data into.
+--Finally, I performed analytics on the data using SQL. 
+
+
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL )
+
+--First I get a quick view of all the data.
+SELECT * FROM BIT_DB.Spotifydata LIMIT 10;
+
+--I start with determining the average danceability for the 10 most popular songs as well as minimum and maximum?
+SELECT AVG(danceability) Average, MAX(danceability) Max, MIN(danceability) Min
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC
+LIMIT 10;
+
+--Checking on the dancability of the 10 least popular songs.
+SELECT danceability, track_name, popularity
+FROM BIT_DB.Spotifydata
+GROUP BY popularity 
+ORDER BY popularity
+LIMIT 10;
+
+--What is the name of the top 20 songs, what were the artists, and what was the loudness?
+SELECT track_name, artist_name, MAX(loudness)
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY MAX(loudness)
+LIMIT 20;
+ 
+--What artist released the longest song?
+SELECT artist_name, duration_ms
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY MAX(duration_ms) DESC
+LIMIT 1;
+
+--Who are the top 10 artists based on popularity?
+SELECT artist_name 
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC
+LIMIT 10;
+
+--What is the average danceability by artist and track?
+SELECT artist_name, track_name, AVG(danceability)
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY AVG(danceability)
+;
