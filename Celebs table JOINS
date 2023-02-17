@@ -1,4 +1,5 @@
 /* Create table about the people and what they do here */
+/* (This was my first attempt at creating multiple tables and then using joins to combine data) */
 
 CREATE TABLE celebs
 (id integer primary key,
