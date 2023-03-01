@@ -1,3 +1,3 @@
 # Jason Link's SQL portfolio
 
-## Hello! This is my SQL portfolio. This code repository has examples of some SQL I've written. Please take a look and  feel free to reach out if you have any questions.
+Hey there! Check out my cool SQL portfolio! I've included some examples of my SQL coding skills. When I first started, I had no clue what SQL even was. There's still a lot for me to learn as I continue to figure this out, but I'm proud of the progress I've made so far. Thanks for taking a peek at my journey!
