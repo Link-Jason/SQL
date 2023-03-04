@@ -1,3 +1,5 @@
+/* This is my First attempt at creating a table */
+
 CREATE TABLE LinkWear 
 (id INTEGER PRIMARY KEY,
 color TEXT,
