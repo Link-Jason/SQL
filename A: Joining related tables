@@ -159,3 +159,4 @@ ON cus.SupportRepId = emp.EmployeeId
 WHERE cus.Country IN ('Finland')
 AND Title = 'Sales Support Agent' 
 GROUP BY emp.LastName, cus.City, cus.country;
+ 
